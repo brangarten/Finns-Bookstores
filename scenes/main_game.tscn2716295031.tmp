@@ -5,7 +5,7 @@
 
 [node name="MainGame" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_s3esy")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_s3esy")]
 top_level = true
 position = Vector2(798, 297)
 
