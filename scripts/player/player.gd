@@ -1,22 +1,31 @@
 extends CharacterBody2D
 class_name PlayerClass
 
-const SPEED : int = 500
+var speed : int = 250
 
-func _add_val(event):
-	"""
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_SPACE:
-			Wallet.wallet_value += 2.25"""
-	pass
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _get_input():
 	var input_direction = Input.get_vector("arrowkey_left", "arrowkey_right", "arrowkey_up", "arrowkey_down", 0.2)
-	velocity = input_direction.normalized() * SPEED
-	print_debug(velocity)	
+	velocity = input_direction.normalized() * speed
+
+	if Input.is_action_pressed("sprint"):
+		speed = 400
+	else:
+		speed = 250
+
+	if input_direction.x > 0:
+		sprite.flip_h = false
+	elif input_direction.x < 0:
+		sprite.flip_h = true
+	
+	print_debug(sprite.position)
 
 func _physics_process(delta: float) -> void:
+	sprite.play("moving")
 	_get_input()
-	_add_val(Input)
 	move_and_slide()
+
+	if Input.is_action_pressed("arrowkey_down"):
+		GPlayer.value += .25
 	

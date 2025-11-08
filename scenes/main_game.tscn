@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://lqucygjysrjp"]
+[gd_scene load_steps=6 format=3 uid="uid://lqucygjysrjp"]
 
-[ext_resource type="PackedScene" uid="uid://bh0k3dfgya0oq" path="res://nodes/Player.tscn" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://bh0k3dfgya0oq" path="res://nodes/player.tscn" id="1_s3esy"]
 [ext_resource type="Texture2D" uid="uid://clfomhmb5i3sc" path="res://assets/textures/ux/ver2-fb-gameplaybackground.png" id="2_d2op2"]
+[ext_resource type="PackedScene" uid="uid://dg8yqosqv62ff" path="res://nodes/wallet.tscn" id="3_d2op2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2op2"]
+size = Vector2(1954, 309)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rdsr"]
+size = Vector2(11, 1092)
 
 [node name="MainGame" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_s3esy")]
+[node name="player" parent="." instance=ExtResource("1_s3esy")]
 top_level = true
-position = Vector2(798, 297)
+position = Vector2(952, 771)
+scale = Vector2(0.25, 0.25)
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="background" type="TextureRect" parent="."]
 visibility_layer = 2
 texture_filter = 1
 anchors_preset = 15
@@ -20,3 +28,30 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_d2op2")
+
+[node name="Wallet" parent="." instance=ExtResource("3_d2op2")]
+scale = Vector2(0.45, 0.45)
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="HorizonLine" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(967, 144.5)
+shape = SubResource("RectangleShape2D_d2op2")
+debug_color = Color(0.80974835, 0.15432173, 0.21254939, 0.41960785)
+
+[node name="Left" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-4.5, 536)
+shape = SubResource("RectangleShape2D_0rdsr")
+debug_color = Color(0.80784315, 0.15294118, 0.21176471, 0.41960785)
+
+[node name="Bottom" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(952.00006, 1079.9999)
+rotation = 1.5711641
+scale = Vector2(1, 1.8000451)
+shape = SubResource("RectangleShape2D_0rdsr")
+debug_color = Color(0.80784315, 0.15294118, 0.21176471, 0.41960785)
+
+[node name="Right" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1921, 536)
+shape = SubResource("RectangleShape2D_0rdsr")
+debug_color = Color(0.80784315, 0.15294118, 0.21176471, 0.41960785)

@@ -1,8 +1,8 @@
 extends Node
 class_name Island
 
-@export var island_name = "Campus"
-@export var island_unlocked = false
+@export var island_name : String = "Campus"
+@export var island_unlocked : bool = false
 @export var population : int = 1
 @export var items : Dictionary = {
 	"Item1" : {
