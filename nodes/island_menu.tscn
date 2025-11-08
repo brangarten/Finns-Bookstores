@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7b64krsmitgj"]
+
+[ext_resource type="Script" uid="uid://qedndwm3xmuf" path="res://scripts/island/island_menu.gd" id="1_ar6b2"]
+[ext_resource type="Shader" uid="uid://22h5pwiho1p0" path="res://assets/shaders/blur.gdshader" id="1_r5px5"]
+[ext_resource type="Texture2D" uid="uid://3dxsfq4wqp2x" path="res://assets/textures/sprites/items/icon_icecream.png" id="2_qqa1g"]
+[ext_resource type="Texture2D" uid="uid://dku8t02f0hsto" path="res://assets/textures/sprites/items/icon_mdctshirt.png" id="3_ar6b2"]
+[ext_resource type="Texture2D" uid="uid://bq0lnsj5202v4" path="res://assets/textures/sprites/items/icon_mdchoodie.png" id="4_m6x8o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1sa6"]
+shader = ExtResource("1_r5px5")
+shader_parameter/lod = 1.0000000475
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqa1g"]
+bg_color = Color(0.015686275, 0.015686275, 0.015686275, 0.5019608)
+border_width_top = 10
+border_width_bottom = 15
+border_color = Color(0.19206867, 0.32040858, 0.40207854, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing_size = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqa1g"]
+
+[sub_resource type="Theme" id="Theme_qqa1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6x8o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar6b2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvmt6"]
+
+[node name="island_menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ar6b2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_k1sa6")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.004852, 26.981482)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 115.0
+offset_right = 902.0
+offset_bottom = 915.0
+scale = Vector2(1.4000001, 1.1199996)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqa1g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 160.0
+offset_right = 902.0
+offset_bottom = 996.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = 45
+
+[node name="Item1" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qqa1g")
+
+[node name="ItemTexture1" type="TextureButton" parent="VBoxContainer/Item1"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_qqa1g")
+texture_normal = ExtResource("2_qqa1g")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m6x8o")
+
+[node name="Item2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ar6b2")
+
+[node name="ItemTexture2" type="TextureButton" parent="VBoxContainer/Item2"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("3_ar6b2")
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rvmt6")
+
+[node name="Item3" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ar6b2")
+
+[node name="ItemTexture3" type="TextureButton" parent="VBoxContainer/Item3"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("4_m6x8o")

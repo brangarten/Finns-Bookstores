@@ -37,7 +37,6 @@ text = "DREAMY BULL"
 horizontal_alignment = 1
 
 [node name="Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 monitorable = false
 
