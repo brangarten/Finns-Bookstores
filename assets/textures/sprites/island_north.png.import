@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr3lbv15ykbip"
-path="res://.godot/imported/fb-gameplaybackground.png-631da85552a74baf19e4eebefc476efc.ctex"
+uid="uid://d1vwp71kvhulk"
+path="res://.godot/imported/island_north.png-2fcc93b891fe0459a38a54eadeb407a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ux/fb-gameplaybackground.png"
-dest_files=["res://.godot/imported/fb-gameplaybackground.png-631da85552a74baf19e4eebefc476efc.ctex"]
+source_file="res://assets/textures/sprites/island_north.png"
+dest_files=["res://.godot/imported/island_north.png-2fcc93b891fe0459a38a54eadeb407a7.ctex"]
 
 [params]
 

@@ -1,10 +1,10 @@
-extends Node
+extends Node2D
 class_name Island
 
-@export var island_name : String = "Campus"
-@export var island_unlocked : bool = false
-@export var population : int = 1
-@export var items : Dictionary = {
+var island_name : String = "Island"
+var island_unlocked : bool = false
+var island_population : int = 1
+var island_items : Dictionary = {
 	"Item1" : {
 		"Name": "Blank",
 		"Value": 1.00,
@@ -25,3 +25,8 @@ class_name Island
 	}
 }
 
+func _set_island(island_name : String, island_unlocked : bool, island_population : int, island_items : Dictionary):
+	self.island_name = island_name
+	self.island_unlocked = island_unlocked
+	self.island_population = island_population
+	self.island_items = island_items

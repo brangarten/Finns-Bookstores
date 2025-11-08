@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name PlayerClass
+class_name Player
 
 var speed : int = 250
 
@@ -19,12 +19,11 @@ func _get_input():
 	elif input_direction.x < 0:
 		sprite.flip_h = true
 	
-	print_debug(sprite.position)
-
 func _physics_process(delta: float) -> void:
 	sprite.play("moving")
 	_get_input()
 	move_and_slide()
+	
 
 	if Input.is_action_pressed("arrowkey_down"):
 		GPlayer.value += .25

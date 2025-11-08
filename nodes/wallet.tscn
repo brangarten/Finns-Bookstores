@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bix0rij75skuh" path="res://scripts/wallet/wallet.gd" id="1_oqua4"]
 [ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="2_uddys"]
-[ext_resource type="Texture2D" uid="uid://bq6fl517oe0c0" path="res://assets/textures/ui/icon-wallet.png" id="3_ch4b8"]
+[ext_resource type="Texture2D" uid="uid://d0237jjktu686" path="res://assets/textures/ui/icon_wallet.png" id="3_6bn0c"]
 
 [node name="Wallet" type="Control"]
 layout_mode = 3
@@ -19,6 +19,11 @@ offset_left = 272.0
 offset_top = 34.0
 offset_right = 507.00006
 offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.73728323, 0.9986411, 0.70857835, 1)
+theme_override_colors/font_shadow_color = Color(0.06904721, 0.28697067, 0.10262703, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_outline_size = 16
 theme_override_fonts/font = ExtResource("2_uddys")
 theme_override_font_sizes/font_size = 250
 text = ": $"
@@ -27,4 +32,4 @@ text = ": $"
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("3_ch4b8")
+texture = ExtResource("3_6bn0c")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxy5wkru5xwqf"]
+
+[ext_resource type="Script" uid="uid://di5nyqtn2s7u5" path="res://scripts/island/island_homestead.gd" id="1_8tp5f"]
+[ext_resource type="Texture2D" uid="uid://bjq7gu24umi1" path="res://assets/textures/sprites/island_homestead.png" id="1_owyhn"]
+[ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="2_8tp5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylcy6"]
+size = Vector2(800, 550)
+
+[node name="island_homestead" type="Node2D"]
+script = ExtResource("1_8tp5f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_owyhn")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = 236.99997
+offset_right = 362.0
+offset_bottom = 341.00003
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.011559761
+theme_override_colors/font_color = Color(0.9764706, 0.36078432, 0.7019608, 1)
+theme_override_colors/font_shadow_color = Color(0.5647059, 0.14509805, 0.27450982, 1)
+theme_override_colors/font_outline_color = Color(0.5254902, 0.23137255, 0.16862746, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("2_8tp5f")
+theme_override_font_sizes/font_size = 150
+text = "DREAMY BULL"
+horizontal_alignment = 1
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_ylcy6")
+debug_color = Color(0.7126832, 0.16441485, 0.31313157, 0.41960785)

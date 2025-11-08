@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw65b8g0jve78"]
+
+[ext_resource type="Script" uid="uid://bc2o1ln228ofo" path="res://scripts/island/island_hialeah.gd" id="1_r76h4"]
+[ext_resource type="Texture2D" uid="uid://dphgyqpb0g5q1" path="res://assets/textures/sprites/island_hialeah.png" id="2_324os"]
+[ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="3_n0rlb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r76h4"]
+size = Vector2(900, 680)
+
+[node name="island_hialeah" type="Node2D"]
+script = ExtResource("1_r76h4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_324os")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_top = 316.99997
+offset_right = 361.0
+offset_bottom = 421.00003
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.011559761
+theme_override_colors/font_color = Color(0.25882354, 0.5176471, 0.9764706, 1)
+theme_override_colors/font_shadow_color = Color(0.23921569, 0.3254902, 0.8235294, 1)
+theme_override_colors/font_outline_color = Color(0.5254902, 0.23137255, 0.16862746, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("3_n0rlb")
+theme_override_font_sizes/font_size = 150
+text = "DREAMY BULL"
+horizontal_alignment = 1
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+visible = false
+shape = SubResource("RectangleShape2D_r76h4")

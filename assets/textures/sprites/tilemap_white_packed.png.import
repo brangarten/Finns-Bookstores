@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq6fl517oe0c0"
-path="res://.godot/imported/icon-wallet.png-1f3b51a65d86b5a63c2558a07e1dcaf1.ctex"
+uid="uid://cdjnekv25nhav"
+path="res://.godot/imported/tilemap_white_packed.png-595fab7f40130c5b14423db26260011f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ui/icon-wallet.png"
-dest_files=["res://.godot/imported/icon-wallet.png-1f3b51a65d86b5a63c2558a07e1dcaf1.ctex"]
+source_file="res://assets/textures/sprites/tilemap_white_packed.png"
+dest_files=["res://.godot/imported/tilemap_white_packed.png-595fab7f40130c5b14423db26260011f.ctex"]
 
 [params]
 

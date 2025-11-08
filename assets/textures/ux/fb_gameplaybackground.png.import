@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clfomhmb5i3sc"
-path="res://.godot/imported/ver2-fb-gameplaybackground.png-65c14fbc1e297cde8281abffd71b65ce.ctex"
+uid="uid://c62fce7xbnlkl"
+path="res://.godot/imported/fb_gameplaybackground.png-e8da24dcd00e8f5f9024a02ba63d6ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ux/ver2-fb-gameplaybackground.png"
-dest_files=["res://.godot/imported/ver2-fb-gameplaybackground.png-65c14fbc1e297cde8281abffd71b65ce.ctex"]
+source_file="res://assets/textures/ux/fb_gameplaybackground.png"
+dest_files=["res://.godot/imported/fb_gameplaybackground.png-e8da24dcd00e8f5f9024a02ba63d6ec4.ctex"]
 
 [params]
 

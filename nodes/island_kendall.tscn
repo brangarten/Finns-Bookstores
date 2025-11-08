@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://lkbtx2tjdr18"]
+
+[ext_resource type="Script" uid="uid://cb7ns0nwh5uud" path="res://scripts/island/island_kendall.gd" id="1_l8qrp"]
+[ext_resource type="Texture2D" uid="uid://dx1pblmdgjw0r" path="res://assets/textures/sprites/island_kendall.png" id="1_rbdjg"]
+[ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="2_l8qrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux58b"]
+size = Vector2(1000, 750)
+
+[node name="island_kendall" type="Node2D"]
+script = ExtResource("1_l8qrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rbdjg")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_top = 315.99997
+offset_right = 361.0
+offset_bottom = 420.00003
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.011559761
+theme_override_colors/font_color = Color(1, 0.5921569, 0.14509805, 1)
+theme_override_colors/font_shadow_color = Color(0.9372549, 0.38431373, 0.047058824, 1)
+theme_override_colors/font_outline_color = Color(0.5254902, 0.23137255, 0.16862746, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("2_l8qrp")
+theme_override_font_sizes/font_size = 150
+text = "DREAMY BULL"
+horizontal_alignment = 1
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_ux58b")
