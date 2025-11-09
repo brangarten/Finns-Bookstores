@@ -36,13 +36,16 @@ func _ready():
 	call_deferred("_connect_island_signals")
 
 func _connect_island_signals():
-	# Get all islands from the "islands" group
 	var islands = get_tree().get_nodes_in_group("islands")
 	for island in islands:
 		if island is Island:
-			if island._display_island_menu.is_connected(_open_menu):
-				continue
-			island._display_island_menu.connect(_open_menu)
+			# Connect menu open signal
+			if not island._display_island_menu.is_connected(_open_menu):
+				island._display_island_menu.connect(_open_menu)
+
+			# Connect population update signal
+			if not island.population_changed.is_connected(_on_population_changed):
+				island.population_changed.connect(_on_population_changed)
 
 func _open_menu(selected_island : Island):
 	if not selected_island:
@@ -95,6 +98,12 @@ func _populate_items(island : Island):
 		
 		item_index += 1
 
+func _on_population_changed(new_population : int) -> void:
+	if current_island:
+		if new_population == current_island.island_population:
+			print("Island '%s' population is now %d" % [current_island.island_name, new_population])
+			_update_transfer_button_label()
+
 func _create_item_panel(item_data : Dictionary, item_key : String, index : int) -> PanelContainer:
 	# Create PanelContainer
 	var panel = PanelContainer.new()
@@ -145,7 +154,7 @@ func _create_item_panel(item_data : Dictionary, item_key : String, index : int) 
 	var item_name = item_data.get("Name", "Unknown")
 	var item_value = item_data.get("Value", 0.0)
 	var population = current_island.island_population if current_island else 1
-	var price_per_pop = item_value / population if population > 0 else item_value
+	var price_per_pop = item_value
 	# Format: "$VAL P/#S" where VAL is the price per population, # is population
 	label.text = "$%.2f P/%d" % [price_per_pop, population]
 	
@@ -243,3 +252,35 @@ func _on_transfer_pressed():
 		current_island.island_wallet = 0.0
 		_update_transfer_button_label()
 		print("Transferred $%.2f from %s to player" % [amount_to_transfer, current_island.island_name])
+
+
+
+func _on_pop_5_button_down() -> void:
+	_emit_population_increase(5)
+
+func _on_pop_10_button_down() -> void:
+	_emit_population_increase(10)
+
+func _on_pop_15_button_down() -> void:
+	_emit_population_increase(15)
+
+func _emit_population_increase(amount : int) -> void:
+	if not current_island:
+		return
+	
+	var total_cost = 10.00 * amount
+	
+	# Check if player can afford
+	if GPlayer.value < total_cost:
+		print("Not enough money! Need $%.2f, have $%.2f" % [total_cost, GPlayer.value])
+		finn_animation.frame = 3  # Sad Finn
+		return
+	
+	# Deduct money and request island to update population
+	GPlayer.value -= total_cost
+	
+	# Instead of directly editing the island's variable, use its signal-based setter
+	current_island.change_population(amount)
+	
+	finn_animation.frame = 2  # Happy Finn animation
+	print("Purchased +%d population for $%.2f" % [amount, total_cost])

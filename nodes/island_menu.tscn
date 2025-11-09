@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://yclryloyonei"]
 
-[ext_resource type="Script" uid="uid://cw4ko1xtnxpch" path="res://scripts/island/island_menu.gd" id="1_ar6b2"]
-[ext_resource type="Shader" uid="uid://5wtchw0835mu" path="res://assets/shaders/blur.gdshader" id="1_r5px5"]
+[ext_resource type="Script" uid="uid://qedndwm3xmuf" path="res://scripts/island/island_menu.gd" id="1_ar6b2"]
+[ext_resource type="Shader" uid="uid://22h5pwiho1p0" path="res://assets/shaders/blur.gdshader" id="1_r5px5"]
 [ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="4_rvmt6"]
 [ext_resource type="Texture2D" uid="uid://desdyedm8fy7h" path="res://assets/textures/ui/button/button_exit.png" id="5_rvmt6"]
 [ext_resource type="Texture2D" uid="uid://w8fd2koesmc3" path="res://assets/textures/sprites/button.png" id="6_m6x8o"]
@@ -91,8 +91,41 @@ offset_left = 67.0
 offset_top = 114.0
 offset_right = 917.0
 offset_bottom = 914.0
-scale = Vector2(1.4000001, 1.1199996)
+scale = Vector2(1.3828043, 0.98209673)
 theme_override_styles/panel = SubResource("StyleBoxFlat_qqa1g")
+
+[node name="PanelContainer2" type="PanelContainer" parent="Papa"]
+z_index = 14
+layout_mode = 0
+offset_left = 67.0
+offset_top = 921.00006
+offset_right = 917.0
+offset_bottom = 1721.0
+scale = Vector2(1.3809896, 0.18204337)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qqa1g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Papa/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 69
+alignment = 1
+
+[node name="pop5" type="Button" parent="Papa/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rvmt6")
+theme_override_font_sizes/font_size = 150
+text = "+5"
+
+[node name="pop10" type="Button" parent="Papa/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rvmt6")
+theme_override_font_sizes/font_size = 210
+text = "+10"
+
+[node name="pop15" type="Button" parent="Papa/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rvmt6")
+theme_override_font_sizes/font_size = 210
+text = "+15"
 
 [node name="Tabs" type="Control" parent="Papa"]
 z_index = 15
@@ -101,13 +134,14 @@ offset_left = 67.0
 offset_top = 909.75
 offset_right = 917.0
 offset_bottom = 909.75
+scale = Vector2(0.98771733, 0.87687254)
 
 [node name="CloseButton" type="TextureButton" parent="Papa/Tabs"]
 layout_mode = 0
-offset_left = 1053.0
-offset_top = -784.75
-offset_right = 1309.0
-offset_bottom = -528.75
+offset_left = 1045.8457
+offset_top = -891.5207
+offset_right = 1301.8457
+offset_bottom = -635.5207
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("5_rvmt6")
 
@@ -137,11 +171,11 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="Papa/Tabs/Items"]
 z_index = 1
 layout_mode = 0
-offset_left = 107.0
-offset_top = 0.25
-offset_right = 420.0
-offset_bottom = 74.88501
-scale = Vector2(0.675, 0.675)
+offset_left = 1008.7266
+offset_top = -83.40741
+offset_right = 1321.7266
+offset_bottom = -8.7724
+scale = Vector2(0.5014285, 0.58279955)
 theme_override_colors/font_color = Color(0.00056586723, 0.0621131, 6.6781416e-07, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_x = 0
@@ -153,18 +187,23 @@ text = "Transfer"
 
 [node name="ItemsTransferButton" type="TextureButton" parent="Papa/Tabs/Items"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = -59.750008
-offset_right = 309.0
-offset_bottom = 196.25
-scale = Vector2(1.213, 0.623)
+offset_left = 954.7266
+offset_top = -143.40741
+offset_right = 1210.7266
+offset_bottom = 112.59259
+scale = Vector2(0.90108556, 0.5379024)
 texture_normal = ExtResource("6_m6x8o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Papa"]
 z_index = 13
+texture_filter = 1
 position = Vector2(1597, 574)
 sprite_frames = SubResource("SpriteFrames_kv36q")
 frame = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_nyvgo")
+
+[connection signal="button_down" from="Papa/PanelContainer2/HBoxContainer/pop5" to="." method="_on_pop_5_button_down"]
+[connection signal="button_down" from="Papa/PanelContainer2/HBoxContainer/pop10" to="." method="_on_pop_10_button_down"]
+[connection signal="button_down" from="Papa/PanelContainer2/HBoxContainer/pop15" to="." method="_on_pop_15_button_down"]

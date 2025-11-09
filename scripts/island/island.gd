@@ -86,6 +86,7 @@ func _calculate_earnings() -> float:
 			var item_value = item_data.get("Value", 0.0)
 			total_earnings += item_value
 	
+	total_earnings += (total_earnings + ( total_earnings * (island_population/100)))
 	return total_earnings
 
 func set_progress_bar(bar : ProgressBar):
