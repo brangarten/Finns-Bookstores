@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7b64krsmitgj"]
+[gd_scene load_steps=10 format=3 uid="uid://yclryloyonei"]
 
-[ext_resource type="Script" uid="uid://qedndwm3xmuf" path="res://scripts/island/island_menu.gd" id="1_ar6b2"]
-[ext_resource type="Shader" uid="uid://22h5pwiho1p0" path="res://assets/shaders/blur.gdshader" id="1_r5px5"]
-[ext_resource type="Texture2D" uid="uid://3dxsfq4wqp2x" path="res://assets/textures/sprites/items/icon_icecream.png" id="2_qqa1g"]
-[ext_resource type="Texture2D" uid="uid://dku8t02f0hsto" path="res://assets/textures/sprites/items/icon_mdctshirt.png" id="3_ar6b2"]
-[ext_resource type="Texture2D" uid="uid://bq0lnsj5202v4" path="res://assets/textures/sprites/items/icon_mdchoodie.png" id="4_m6x8o"]
+[ext_resource type="Script" uid="uid://cw4ko1xtnxpch" path="res://scripts/island/island_menu.gd" id="1_ar6b2"]
+[ext_resource type="Shader" uid="uid://5wtchw0835mu" path="res://assets/shaders/blur.gdshader" id="1_r5px5"]
+[ext_resource type="Texture2D" uid="uid://ctkb305asq6x0" path="res://assets/textures/sprites/items/tab_red.png" id="3_qqa1g"]
+[ext_resource type="Texture2D" uid="uid://d01n74pvcy3c0" path="res://assets/textures/sprites/items/tab_purple.png" id="4_ar6b2"]
+[ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="4_rvmt6"]
+[ext_resource type="Texture2D" uid="uid://w8fd2koesmc3" path="res://assets/textures/sprites/button.png" id="6_m6x8o"]
+[ext_resource type="Texture2D" uid="uid://py63yy4bi2qj" path="res://icon.svg" id="7_rvmt6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k1sa6"]
 shader = ExtResource("1_r5px5")
@@ -22,16 +24,6 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing_size = 10.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqa1g"]
-
-[sub_resource type="Theme" id="Theme_qqa1g"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6x8o"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar6b2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvmt6"]
-
 [node name="island_menu" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -42,64 +34,126 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ar6b2")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Papa" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Papa"]
+z_index = 10
 material = SubResource("ShaderMaterial_k1sa6")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(48.004852, 26.981482)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="Papa"]
+z_index = 14
 layout_mode = 0
-offset_left = 52.0
-offset_top = 115.0
-offset_right = 902.0
-offset_bottom = 915.0
+offset_left = 67.0
+offset_top = 114.0
+offset_right = 917.0
+offset_bottom = 914.0
 scale = Vector2(1.4000001, 1.1199996)
 theme_override_styles/panel = SubResource("StyleBoxFlat_qqa1g")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="RedTab" type="TextureRect" parent="Papa"]
+z_index = 12
 layout_mode = 0
-offset_left = 52.0
-offset_top = 160.0
-offset_right = 902.0
-offset_bottom = 996.0
+offset_left = 97.0
+offset_top = 272.0
+offset_right = 353.0
+offset_bottom = 528.0
+rotation = -1.5707964
+texture = ExtResource("3_qqa1g")
+
+[node name="PinkTab" type="TextureRect" parent="Papa"]
+z_index = 11
+layout_mode = 0
+offset_left = 207.0
+offset_top = 293.0
+offset_right = 463.0
+offset_bottom = 549.0
+rotation = -1.5707964
+texture = ExtResource("4_ar6b2")
+
+[node name="Tabs" type="Control" parent="Papa"]
+z_index = 15
+anchors_preset = 0
+offset_left = 67.0
+offset_top = 909.75
+offset_right = 917.0
+offset_bottom = 909.75
+
+[node name="CloseButton" type="TextureButton" parent="Papa/Tabs"]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = -780.75
+offset_right = 1237.0
+offset_bottom = -652.75
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_rvmt6")
+
+[node name="Population" type="Control" parent="Papa/Tabs"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="Papa/Tabs"]
+layout_mode = 0
+offset_left = 393.0
+offset_top = -32.75
+offset_right = 628.0
+offset_bottom = 139.25
+theme_override_colors/font_color = Color(0.73728323, 0.9986411, 0.70857835, 1)
+theme_override_colors/font_shadow_color = Color(0.06904721, 0.28697067, 0.10262703, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("4_rvmt6")
+theme_override_font_sizes/font_size = 140
+text = ": $"
+
+[node name="Items" type="Control" parent="Papa/Tabs"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemsVBoxContainer" type="VBoxContainer" parent="Papa/Tabs/Items"]
+layout_mode = 0
+offset_top = -750.75
+offset_right = 850.0
+offset_bottom = 205.25
 scale = Vector2(0.75, 0.75)
 theme_override_constants/separation = 45
 
-[node name="Item1" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_qqa1g")
+[node name="ItemsTextureRect" type="TextureRect" parent="Papa/Tabs/Items"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="ItemTexture1" type="TextureButton" parent="VBoxContainer/Item1"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 0
-theme = SubResource("Theme_qqa1g")
-texture_normal = ExtResource("2_qqa1g")
+[node name="ItemsTransferButton" type="TextureButton" parent="Papa/Tabs/Items"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = -59.750008
+offset_right = 309.0
+offset_bottom = 196.25
+scale = Vector2(1.213, 0.623)
+texture_normal = ExtResource("6_m6x8o")
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_m6x8o")
-
-[node name="Item2" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ar6b2")
-
-[node name="ItemTexture2" type="TextureButton" parent="VBoxContainer/Item2"]
-texture_filter = 1
-layout_mode = 2
-texture_normal = ExtResource("3_ar6b2")
-
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_rvmt6")
-
-[node name="Item3" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ar6b2")
-
-[node name="ItemTexture3" type="TextureButton" parent="VBoxContainer/Item3"]
-texture_filter = 1
-layout_mode = 2
-texture_normal = ExtResource("4_m6x8o")
+[node name="Label" type="Label" parent="Papa/Tabs/Items/ItemsTransferButton"]
+z_index = 1
+layout_mode = 0
+offset_left = 24.897408
+offset_top = 120.65105
+offset_right = 337.8974
+offset_bottom = 195.28606
+scale = Vector2(0.675, 0.675)
+theme_override_colors/font_color = Color(0.00056586723, 0.0621131, 6.6781416e-07, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("4_rvmt6")
+theme_override_font_sizes/font_size = 100
+text = "Transfer"

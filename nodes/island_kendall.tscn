@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://lkbtx2tjdr18"]
+[gd_scene load_steps=6 format=3 uid="uid://cjougj6mxu61t"]
 
-[ext_resource type="Script" uid="uid://cb7ns0nwh5uud" path="res://scripts/island/island_kendall.gd" id="1_l8qrp"]
+[ext_resource type="Script" uid="uid://c2u45efscm2vw" path="res://scripts/island/island_kendall.gd" id="1_l8qrp"]
 [ext_resource type="Texture2D" uid="uid://dx1pblmdgjw0r" path="res://assets/textures/sprites/island_kendall.png" id="1_rbdjg"]
 [ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="2_l8qrp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8qrp"]
+bg_color = Color(0.9372549, 0.38431373, 0.047058824, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux58b"]
-size = Vector2(1000, 750)
+size = Vector2(992, 567)
 
 [node name="island_kendall" type="Node2D"]
 script = ExtResource("1_l8qrp")
@@ -36,8 +39,22 @@ theme_override_font_sizes/font_size = 150
 text = "DREAMY BULL"
 horizontal_alignment = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -393.0
+offset_top = -454.0
+offset_right = 407.0
+offset_bottom = -394.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_l8qrp")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/fill = SubResource("StyleBoxFlat_l8qrp")
+rounded = true
+
 [node name="Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2(2, 0)
+position = Vector2(2, 60.5)
 shape = SubResource("RectangleShape2D_ux58b")

@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://lqucygjysrjp"]
 
-[ext_resource type="PackedScene" uid="uid://bh0k3dfgya0oq" path="res://nodes/player.tscn" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://bh0k3dfgya0oq" path="res://nodes/Player.tscn" id="1_s3esy"]
 [ext_resource type="Texture2D" uid="uid://g6riv8road1k" path="res://assets/textures/ux/ver2_fb_gameplaybackground.png" id="3_0rdsr"]
-[ext_resource type="PackedScene" uid="uid://dg8yqosqv62ff" path="res://nodes/wallet.tscn" id="3_d2op2"]
-[ext_resource type="PackedScene" uid="uid://dtbi7mouvgfia" path="res://nodes/island_north.tscn" id="4_0rdsr"]
-[ext_resource type="PackedScene" uid="uid://dw65b8g0jve78" path="res://nodes/island_hialeah.tscn" id="5_ipu61"]
-[ext_resource type="PackedScene" uid="uid://b3badt6bqqv1p" path="res://nodes/island_wolfson.tscn" id="6_ygxny"]
-[ext_resource type="PackedScene" uid="uid://lkbtx2tjdr18" path="res://nodes/island_kendall.tscn" id="7_wi4c7"]
-[ext_resource type="PackedScene" uid="uid://bxy5wkru5xwqf" path="res://nodes/island_homestead.tscn" id="8_70vka"]
-[ext_resource type="PackedScene" uid="uid://c7b64krsmitgj" path="res://nodes/island_menu.tscn" id="9_2l77h"]
+[ext_resource type="PackedScene" path="res://nodes/wallet.tscn" id="3_d2op2"]
+[ext_resource type="PackedScene" uid="uid://1hjenulmqsdl" path="res://nodes/island_north.tscn" id="4_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://b6ubj73a3od4w" path="res://nodes/island_hialeah.tscn" id="5_ipu61"]
+[ext_resource type="PackedScene" uid="uid://8vao2aydd865" path="res://nodes/island_wolfson.tscn" id="6_ygxny"]
+[ext_resource type="PackedScene" uid="uid://cjougj6mxu61t" path="res://nodes/island_kendall.tscn" id="7_wi4c7"]
+[ext_resource type="PackedScene" uid="uid://b6jg0kbp012m7" path="res://nodes/island_homestead.tscn" id="8_70vka"]
+[ext_resource type="PackedScene" uid="uid://yclryloyonei" path="res://nodes/island_menu.tscn" id="9_2l77h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rdsr"]
 size = Vector2(1920, 247)
@@ -40,27 +40,29 @@ position = Vector2(915, 588)
 scale = Vector2(0.2, 0.2)
 
 [node name="Islands" type="Node2D" parent="."]
+position = Vector2(-8, 0)
 
-[node name="island_hialeah" parent="Islands" instance=ExtResource("5_ipu61")]
+[node name="island_hialeah" parent="Islands" groups=["islands"] instance=ExtResource("5_ipu61")]
 position = Vector2(239, 379)
 scale = Vector2(0.4, 0.4)
 
-[node name="island_north" parent="Islands" instance=ExtResource("4_0rdsr")]
+[node name="island_north" parent="Islands" groups=["islands"] instance=ExtResource("4_0rdsr")]
 position = Vector2(930.00006, 307.00003)
 scale = Vector2(0.42, 0.42665425)
 
-[node name="island_kendall" parent="Islands" instance=ExtResource("7_wi4c7")]
+[node name="island_kendall" parent="Islands" groups=["islands"] instance=ExtResource("7_wi4c7")]
 position = Vector2(424, 825)
 scale = Vector2(0.5, 0.5)
 
-[node name="island_homestead" parent="Islands" instance=ExtResource("8_70vka")]
-position = Vector2(1495, 888)
+[node name="island_homestead" parent="Islands" groups=["islands"] instance=ExtResource("8_70vka")]
+position = Vector2(1494.9999, 889.00006)
 scale = Vector2(0.48, 0.48)
 
-[node name="island_wolfson" parent="Islands" instance=ExtResource("6_ygxny")]
+[node name="island_wolfson" parent="Islands" groups=["islands"] instance=ExtResource("6_ygxny")]
 position = Vector2(1648, 432)
+rotation = 0.0022046547
 scale = Vector2(0.55, 0.55)
 
-[node name="island_menu" parent="." instance=ExtResource("9_2l77h")]
+[node name="island_menu" parent="." groups=["islandmenu"] instance=ExtResource("9_2l77h")]
 visible = false
 z_index = 3

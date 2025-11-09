@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxy5wkru5xwqf"]
+[gd_scene load_steps=6 format=3 uid="uid://b6jg0kbp012m7"]
 
-[ext_resource type="Script" uid="uid://di5nyqtn2s7u5" path="res://scripts/island/island_homestead.gd" id="1_8tp5f"]
+[ext_resource type="Script" uid="uid://bv355hfoooflx" path="res://scripts/island/island_homestead.gd" id="1_8tp5f"]
 [ext_resource type="Texture2D" uid="uid://bjq7gu24umi1" path="res://assets/textures/sprites/island_homestead.png" id="1_owyhn"]
 [ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="2_8tp5f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tp5f"]
+bg_color = Color(0.8666667, 0.2784314, 0.5372549, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylcy6"]
 size = Vector2(800, 550)
@@ -35,6 +38,20 @@ theme_override_fonts/font = ExtResource("2_8tp5f")
 theme_override_font_sizes/font_size = 150
 text = "DREAMY BULL"
 horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -395.0
+offset_top = -366.0
+offset_right = 405.0
+offset_bottom = -306.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_8tp5f")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/fill = SubResource("StyleBoxFlat_8tp5f")
+rounded = true
 
 [node name="Area" type="Area2D" parent="."]
 

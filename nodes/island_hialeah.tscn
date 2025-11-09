@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw65b8g0jve78"]
+[gd_scene load_steps=6 format=3 uid="uid://b6ubj73a3od4w"]
 
-[ext_resource type="Script" uid="uid://bc2o1ln228ofo" path="res://scripts/island/island_hialeah.gd" id="1_r76h4"]
+[ext_resource type="Script" uid="uid://c7lbau3p6e0gn" path="res://scripts/island/island_hialeah.gd" id="1_r76h4"]
 [ext_resource type="Texture2D" uid="uid://dphgyqpb0g5q1" path="res://assets/textures/sprites/island_hialeah.png" id="2_324os"]
 [ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="3_n0rlb"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r76h4"]
+bg_color = Color(0.1590805, 0.56353515, 0.87211835, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r76h4"]
-size = Vector2(900, 680)
+size = Vector2(770, 680)
 
 [node name="island_hialeah" type="Node2D"]
 script = ExtResource("1_r76h4")
@@ -35,6 +38,20 @@ theme_override_fonts/font = ExtResource("3_n0rlb")
 theme_override_font_sizes/font_size = 150
 text = "DREAMY BULL"
 horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -395.0
+offset_top = -442.0
+offset_right = 405.0
+offset_bottom = -382.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_n0rlb")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/fill = SubResource("StyleBoxFlat_r76h4")
+rounded = true
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 8

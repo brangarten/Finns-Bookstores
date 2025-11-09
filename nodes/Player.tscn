@@ -1,7 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh0k3dfgya0oq"]
+[gd_scene load_steps=21 format=3 uid="uid://bh0k3dfgya0oq"]
 
 [ext_resource type="Script" uid="uid://babmr74hdke5n" path="res://scripts/player/player.gd" id="1_bkgf5"]
 [ext_resource type="Texture2D" uid="uid://cuw46dkssjoj0" path="res://assets/textures/sprites/finn_player_spritesheet.png" id="2_bms3g"]
+[ext_resource type="Texture2D" uid="uid://dynkr578u4lip" path="res://assets/textures/sprites/finn_land_spritesheet.png" id="2_x4r3j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b2qv"]
+atlas = ExtResource("2_x4r3j")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u71v6"]
+atlas = ExtResource("2_x4r3j")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5sd1"]
+atlas = ExtResource("2_x4r3j")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ockd"]
+atlas = ExtResource("2_x4r3j")
+region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bms3g"]
 atlas = ExtResource("2_bms3g")
@@ -51,6 +68,23 @@ region = Rect2(5120, 0, 512, 512)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1b2qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u71v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5sd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ockd")
+}],
+"loop": true,
+"name": &"land",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bms3g")
 }, {
 "duration": 1.0,
@@ -89,7 +123,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdiyv"]
-size = Vector2(426, 302)
+size = Vector2(282, 302)
 
 [node name="player" type="CharacterBody2D"]
 z_index = 2
@@ -104,7 +138,8 @@ script = ExtResource("1_bkgf5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gggum")
-animation = &"moving"
+animation = &"land"
+frame_progress = 0.10388659
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -19)

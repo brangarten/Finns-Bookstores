@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3badt6bqqv1p"]
+[gd_scene load_steps=6 format=3 uid="uid://8vao2aydd865"]
 
-[ext_resource type="Script" uid="uid://d0nsynnv1s2tq" path="res://scripts/island/island_wolfson.gd" id="1_3l2ii"]
+[ext_resource type="Script" uid="uid://divjfgjxanrdy" path="res://scripts/island/island_wolfson.gd" id="1_3l2ii"]
 [ext_resource type="Texture2D" uid="uid://cfgw0buw6r3lt" path="res://assets/textures/sprites/island_wolfson.png" id="1_bx4hw"]
 [ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="2_3l2ii"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l2ii"]
+bg_color = Color(0.49411765, 0.4745098, 0.99215686, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx4hw"]
-size = Vector2(850, 550)
+size = Vector2(850, 571.44696)
 
 [node name="island_wolfson" type="Node2D"]
 script = ExtResource("1_3l2ii")
@@ -36,11 +39,26 @@ theme_override_font_sizes/font_size = 150
 text = "DREAMY BULL"
 horizontal_alignment = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -395.0
+offset_top = -492.0
+offset_right = 405.0
+offset_bottom = -432.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_3l2ii")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/fill = SubResource("StyleBoxFlat_3l2ii")
+rounded = true
+
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2(0, 33)
+position = Vector2(0, 20.013767)
+scale = Vector2(1.0819672, 1.2110091)
 shape = SubResource("RectangleShape2D_bx4hw")
 debug_color = Color(0.9280611, 3.638685e-05, 0.6681, 0.41960785)
