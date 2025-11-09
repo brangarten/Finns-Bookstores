@@ -94,3 +94,18 @@ func set_progress_bar(bar : ProgressBar):
 		progress_bar.min_value = 0.0
 		progress_bar.max_value = 100.0
 		progress_bar.value = 0.0
+
+
+# Population helpers
+signal population_changed(new_population : int)
+
+func change_population(delta : int) -> void:
+	# Adjust population by delta; keep a minimum of 1
+	set_population(island_population + delta)
+
+func set_population(new_population : int) -> void:
+	var n = int(new_population)
+	if n < 1:
+		n = 1
+	island_population = n
+	emit_signal("population_changed", island_population)

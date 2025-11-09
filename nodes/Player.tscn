@@ -139,7 +139,6 @@ script = ExtResource("1_bkgf5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gggum")
 animation = &"land"
-frame_progress = 0.10388659
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -19)

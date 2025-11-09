@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lqucygjysrjp"]
+[gd_scene load_steps=12 format=3 uid="uid://lqucygjysrjp"]
 
 [ext_resource type="PackedScene" uid="uid://bh0k3dfgya0oq" path="res://nodes/Player.tscn" id="1_s3esy"]
 [ext_resource type="Texture2D" uid="uid://g6riv8road1k" path="res://assets/textures/ux/ver2_fb_gameplaybackground.png" id="3_0rdsr"]
@@ -13,7 +13,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rdsr"]
 size = Vector2(1920, 247)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l77h"]
+size = Vector2(9.5, 1100)
+
 [node name="MainGame" type="Node2D"]
+position = Vector2(0, -1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1920.0
@@ -35,9 +39,22 @@ position = Vector2(960, 123.5)
 shape = SubResource("RectangleShape2D_0rdsr")
 debug_color = Color(0, 0.57135797, 0.3282282, 0.41960785)
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3.5, 540)
+shape = SubResource("RectangleShape2D_2l77h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1924, 540)
+shape = SubResource("RectangleShape2D_2l77h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960, 1086)
+scale = Vector2(208.84947, -0.033769093)
+shape = SubResource("RectangleShape2D_2l77h")
+
 [node name="player" parent="." instance=ExtResource("1_s3esy")]
 position = Vector2(915, 588)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 
 [node name="Islands" type="Node2D" parent="."]
 position = Vector2(-8, 0)

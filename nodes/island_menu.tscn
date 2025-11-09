@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://yclryloyonei"]
+[gd_scene load_steps=15 format=3 uid="uid://yclryloyonei"]
 
 [ext_resource type="Script" uid="uid://cw4ko1xtnxpch" path="res://scripts/island/island_menu.gd" id="1_ar6b2"]
 [ext_resource type="Shader" uid="uid://5wtchw0835mu" path="res://assets/shaders/blur.gdshader" id="1_r5px5"]
-[ext_resource type="Texture2D" uid="uid://ctkb305asq6x0" path="res://assets/textures/sprites/items/tab_red.png" id="3_qqa1g"]
-[ext_resource type="Texture2D" uid="uid://d01n74pvcy3c0" path="res://assets/textures/sprites/items/tab_purple.png" id="4_ar6b2"]
 [ext_resource type="FontFile" uid="uid://btm257q71t4er" path="res://assets/fonts/ByteBounce.ttf" id="4_rvmt6"]
+[ext_resource type="Texture2D" uid="uid://desdyedm8fy7h" path="res://assets/textures/ui/button/button_exit.png" id="5_rvmt6"]
 [ext_resource type="Texture2D" uid="uid://w8fd2koesmc3" path="res://assets/textures/sprites/button.png" id="6_m6x8o"]
-[ext_resource type="Texture2D" uid="uid://py63yy4bi2qj" path="res://icon.svg" id="7_rvmt6"]
+[ext_resource type="Texture2D" uid="uid://dvw1vg0f1nan0" path="res://assets/textures/sprites/human_finn_spritesheet.png" id="8_nyvgo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k1sa6"]
 shader = ExtResource("1_r5px5")
@@ -23,6 +22,44 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing_size = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8wk4"]
+atlas = ExtResource("8_nyvgo")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x34pg"]
+atlas = ExtResource("8_nyvgo")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abrpd"]
+atlas = ExtResource("8_nyvgo")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcuov"]
+atlas = ExtResource("8_nyvgo")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kv36q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8wk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x34pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abrpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcuov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_nyvgo"]
 
 [node name="island_menu" type="Control"]
 process_mode = 3
@@ -57,26 +94,6 @@ offset_bottom = 914.0
 scale = Vector2(1.4000001, 1.1199996)
 theme_override_styles/panel = SubResource("StyleBoxFlat_qqa1g")
 
-[node name="RedTab" type="TextureRect" parent="Papa"]
-z_index = 12
-layout_mode = 0
-offset_left = 97.0
-offset_top = 272.0
-offset_right = 353.0
-offset_bottom = 528.0
-rotation = -1.5707964
-texture = ExtResource("3_qqa1g")
-
-[node name="PinkTab" type="TextureRect" parent="Papa"]
-z_index = 11
-layout_mode = 0
-offset_left = 207.0
-offset_top = 293.0
-offset_right = 463.0
-offset_bottom = 549.0
-rotation = -1.5707964
-texture = ExtResource("4_ar6b2")
-
 [node name="Tabs" type="Control" parent="Papa"]
 z_index = 15
 anchors_preset = 0
@@ -87,32 +104,17 @@ offset_bottom = 909.75
 
 [node name="CloseButton" type="TextureButton" parent="Papa/Tabs"]
 layout_mode = 0
-offset_left = 1109.0
-offset_top = -780.75
-offset_right = 1237.0
-offset_bottom = -652.75
+offset_left = 1053.0
+offset_top = -784.75
+offset_right = 1309.0
+offset_bottom = -528.75
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("7_rvmt6")
+texture_normal = ExtResource("5_rvmt6")
 
 [node name="Population" type="Control" parent="Papa/Tabs"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Label2" type="Label" parent="Papa/Tabs"]
-layout_mode = 0
-offset_left = 393.0
-offset_top = -32.75
-offset_right = 628.0
-offset_bottom = 139.25
-theme_override_colors/font_color = Color(0.73728323, 0.9986411, 0.70857835, 1)
-theme_override_colors/font_shadow_color = Color(0.06904721, 0.28697067, 0.10262703, 1)
-theme_override_constants/shadow_offset_x = 10
-theme_override_constants/shadow_offset_y = 6
-theme_override_constants/shadow_outline_size = 16
-theme_override_fonts/font = ExtResource("4_rvmt6")
-theme_override_font_sizes/font_size = 140
-text = ": $"
 
 [node name="Items" type="Control" parent="Papa/Tabs"]
 anchors_preset = 0
@@ -132,22 +134,13 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ItemsTransferButton" type="TextureButton" parent="Papa/Tabs/Items"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = -59.750008
-offset_right = 309.0
-offset_bottom = 196.25
-scale = Vector2(1.213, 0.623)
-texture_normal = ExtResource("6_m6x8o")
-
-[node name="Label" type="Label" parent="Papa/Tabs/Items/ItemsTransferButton"]
+[node name="Label" type="Label" parent="Papa/Tabs/Items"]
 z_index = 1
 layout_mode = 0
-offset_left = 24.897408
-offset_top = 120.65105
-offset_right = 337.8974
-offset_bottom = 195.28606
+offset_left = 107.0
+offset_top = 0.25
+offset_right = 420.0
+offset_bottom = 74.88501
 scale = Vector2(0.675, 0.675)
 theme_override_colors/font_color = Color(0.00056586723, 0.0621131, 6.6781416e-07, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
@@ -157,3 +150,21 @@ theme_override_constants/shadow_outline_size = 16
 theme_override_fonts/font = ExtResource("4_rvmt6")
 theme_override_font_sizes/font_size = 100
 text = "Transfer"
+
+[node name="ItemsTransferButton" type="TextureButton" parent="Papa/Tabs/Items"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = -59.750008
+offset_right = 309.0
+offset_bottom = 196.25
+scale = Vector2(1.213, 0.623)
+texture_normal = ExtResource("6_m6x8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Papa"]
+z_index = 13
+position = Vector2(1597, 574)
+sprite_frames = SubResource("SpriteFrames_kv36q")
+frame = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_nyvgo")

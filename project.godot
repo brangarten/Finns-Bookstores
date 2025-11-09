@@ -29,11 +29,12 @@ window/size/transparent=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
-window/vsync/vsync_mode=0
+mouse_cursor/custom_image="uid://bd1llhtwao64y"
 
 [global_group]
 
 islands=""
+tabs=""
 
 [input]
 

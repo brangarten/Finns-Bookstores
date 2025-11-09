@@ -1,14 +1,17 @@
 extends Control
 
-@onready var menu : Control = $Papa
+@onready var menu  			 : Control = $Papa
 @onready var items_container : VBoxContainer = $Papa/Tabs/Items/ItemsVBoxContainer
-@onready var close_button : TextureButton = $Papa/Tabs/CloseButton
+@onready var close_button    : TextureButton = $Papa/Tabs/CloseButton
 @onready var transfer_button : TextureButton = $Papa/Tabs/Items/ItemsTransferButton
-@onready var transfer_label : Label = $Papa/Tabs/Items/ItemsTransferButton/Label
+@onready var transfer_label  : Label = $Papa/Tabs/Items/Label
+@onready var item_tab 		 : TextureRect = $Papa/RedTab
+@onready var population_tab  : TextureRect = $Papa/PinkTab
+@onready var finn_animation  : AnimatedSprite2D = $Papa/AnimatedSprite2D
 
 var current_island : Island = null
 
-# Style resources (we'll create these programmatically)
+# Style resources
 var style_box_empty : StyleBoxEmpty = StyleBoxEmpty.new()
 var font_resource : FontFile = null
 
@@ -54,6 +57,7 @@ func _open_menu(selected_island : Island):
 	_populate_items(selected_island)
 	_update_transfer_button_label()
 	self.visible = true
+	finn_animation.frame = 1
 
 func _close_menu():
 	self.visible = false
@@ -143,7 +147,7 @@ func _create_item_panel(item_data : Dictionary, item_key : String, index : int) 
 	var population = current_island.island_population if current_island else 1
 	var price_per_pop = item_value / population if population > 0 else item_value
 	# Format: "$VAL P/#S" where VAL is the price per population, # is population
-	label.text = "$%.2f P/%dS" % [price_per_pop, population]
+	label.text = "$%.2f P/%d" % [price_per_pop, population]
 	
 	# Connect button press (if unlocked)
 	if not is_locked:
@@ -190,7 +194,11 @@ func _on_unlock_pressed(item_key : String, unlock_price : float):
 	# Check if player has enough money
 	if GPlayer.value < unlock_price:
 		print("Not enough money! Need $%.2f, have $%.2f" % [unlock_price, GPlayer.value])
+		finn_animation.frame = 3
 		return
+	elif GPlayer.value > unlock_price:
+		print("YAY :3")
+		finn_animation.frame = 2
 	
 	# Check if item exists and is locked
 	if not current_island.island_items.has(item_key):

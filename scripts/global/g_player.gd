@@ -1,3 +1,3 @@
 extends Node
 
-var value : float = 0.00
+var value : float = 500.00
